@@ -1,0 +1,356 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module Types</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>Types</strong></big></big></font></td
+><td align=right valign=bottom
+></td></tr></table>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="#ACK">ACK</a>
+</font></dt><dt><font face="helvetica, arial"><a href="#DB">DB</a>
+</font></dt><dt><font face="helvetica, arial"><a href="#DeletePosition">DeletePosition</a>
+</font></dt><dt><font face="helvetica, arial"><a href="#ESP32">ESP32</a>
+</font></dt><dt><font face="helvetica, arial"><a href="#ESP32Array">ESP32Array</a>
+</font></dt><dt><font face="helvetica, arial"><a href="#ResetESP32">ResetESP32</a>
+</font></dt><dt><font face="helvetica, arial"><a href="#SetLED">SetLED</a>
+</font></dt><dt><font face="helvetica, arial"><a href="#Shelf">Shelf</a>
+</font></dt><dt><font face="helvetica, arial"><a href="#ShelfArray">ShelfArray</a>
+</font></dt><dt><font face="helvetica, arial"><a href="#ShelfPosition">ShelfPosition</a>
+</font></dt><dt><font face="helvetica, arial"><a href="#ShelfSelection">ShelfSelection</a>
+</font></dt><dt><font face="helvetica, arial"><a href="#ShelfSelectionWithColor">ShelfSelectionWithColor</a>
+</font></dt><dt><font face="helvetica, arial"><a href="#TurnOff">TurnOff</a>
+</font></dt><dt><font face="helvetica, arial"><a href="#TurnOn">TurnOn</a>
+</font></dt><dt><font face="helvetica, arial"><a href="#UnsetLED">UnsetLED</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ACK">class <strong>ACK</strong></a>(<a href="https://pydantic-docs.helpmanual.io/usage/models/">pydantic.main.BaseModel</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#ACK">ACK</a>(*,&nbsp;Mac_Address:&nbsp;str,&nbsp;ACK_id:&nbsp;int)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+Dataclass&nbsp;representing&nbsp;an&nbsp;<a href="#ACK">ACK</a>.<br>
+ACKs&nbsp;are&nbsp;used&nbsp;to&nbsp;ensure&nbsp;that&nbsp;messages&nbsp;were&nbsp;sent&nbsp;to<br>
+ESP32s&nbsp;and&nbsp;that&nbsp;these&nbsp;were&nbsp;able&nbsp;to&nbsp;do&nbsp;the&nbsp;needed&nbsp;operations.<br>
+An&nbsp;<a href="#ACK">ACK</a>&nbsp;has&nbsp;a&nbsp;unique&nbsp;ID&nbsp;that&nbsp;is&nbsp;used&nbsp;to&nbsp;identify&nbsp;it&nbsp;while&nbsp;waiting&nbsp;for&nbsp;it<br>
+on&nbsp;the&nbsp;server&nbsp;side.&nbsp;After&nbsp;it&nbsp;has&nbsp;been&nbsp;received&nbsp;it&nbsp;is&nbsp;removed&nbsp;from&nbsp;the&nbsp;queue.<br>
+&nbsp;<br>
+Attributes<br>
+----------<br>
+Mac_Address:&nbsp;str<br>
+MAC-Address&nbsp;of&nbsp;the&nbsp;<a href="#ESP32">ESP32</a>&nbsp;that&nbsp;is&nbsp;sending&nbsp;the&nbsp;<a href="#ACK">ACK</a>.<br>
+ACK_id:&nbsp;int<br>
+ID&nbsp;that&nbsp;uniquely&nbsp;identifies&nbsp;the&nbsp;<a href="#ACK">ACK</a>&nbsp;being&nbsp;sent&nbsp;and&nbsp;received.&nbsp;With&nbsp;this<br>
+ID&nbsp;it&nbsp;is&nbsp;possible&nbsp;to&nbsp;uniquely&nbsp;identify&nbsp;operations&nbsp;performed&nbsp;by&nbsp;the&nbsp;ESP32s.<br>&nbsp;</tt></td></tr>
+</table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="DB">class <strong>DB</strong></a>(<a href="https://pydantic-docs.helpmanual.io/usage/models/">pydantic.main.BaseModel</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#DB">DB</a>(*,&nbsp;Shelves:&nbsp;__init__.<a href="#ShelfArray">ShelfArray</a>,&nbsp;ESP32s:&nbsp;__init__.<a href="#ESP32Array">ESP32Array</a>)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+Dataclass&nbsp;representing&nbsp;the&nbsp;database&nbsp;managed&nbsp;by&nbsp;the&nbsp;class<br>
+DataManager.<br>
+Here&nbsp;all&nbsp;data&nbsp;concerning&nbsp;the&nbsp;<a href="#Shelf">Shelf</a>&nbsp;objects&nbsp;and&nbsp;<a href="#ESP32">ESP32</a>&nbsp;objects&nbsp;is&nbsp;stored<br>
+and&nbsp;can&nbsp;be&nbsp;serialized&nbsp;in&nbsp;order&nbsp;to&nbsp;be&nbsp;stored&nbsp;in&nbsp;a&nbsp;JSON&nbsp;text&nbsp;file.<br>
+&nbsp;<br>
+Attributes<br>
+----------<br>
+Shelves:&nbsp;<a href="#ShelfArray">ShelfArray</a><br>
+<a href="#ShelfArray">ShelfArray</a>&nbsp;containing&nbsp;all&nbsp;<a href="#Shelf">Shelf</a>&nbsp;objects.&nbsp;This&nbsp;would&nbsp;be&nbsp;equivalent&nbsp;to&nbsp;a&nbsp;table&nbsp;in<br>
+a&nbsp;SQL&nbsp;database.&nbsp;Every&nbsp;time&nbsp;CRUD-operations&nbsp;are&nbsp;performed&nbsp;on&nbsp;the&nbsp;database&nbsp;they&nbsp;are<br>
+being&nbsp;made&nbsp;on&nbsp;this&nbsp;<a href="#ShelfArray">ShelfArray</a>&nbsp;object.<br>
+ESP32s:&nbsp;<a href="#ESP32Array">ESP32Array</a><br>
+<a href="#ESP32Array">ESP32Array</a>&nbsp;containing&nbsp;all&nbsp;<a href="#ESP32">ESP32</a>&nbsp;objects.&nbsp;This&nbsp;would&nbsp;be&nbsp;equivalent&nbsp;to&nbsp;a&nbsp;table&nbsp;in<br>
+a&nbsp;SQL&nbsp;database.&nbsp;Every&nbsp;time&nbsp;CRUD-operations&nbsp;are&nbsp;performed&nbsp;on&nbsp;the&nbsp;database&nbsp;they&nbsp;are<br>
+being&nbsp;made&nbsp;on&nbsp;this&nbsp;<a href="#ESP32Array">ESP32Array</a>&nbsp;object.<br>&nbsp;</tt></td></tr>
+</table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="DeletePosition">class <strong>DeletePosition</strong></a>(<a href="https://pydantic-docs.helpmanual.io/usage/models/">pydantic.main.BaseModel</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#DeletePosition">DeletePosition</a>(*,&nbsp;ShelfNumber:&nbsp;int,&nbsp;PositionId:&nbsp;int)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+Dataclass&nbsp;to&nbsp;delete&nbsp;a&nbsp;position&nbsp;with&nbsp;the<br>
+PositionId&nbsp;in&nbsp;the&nbsp;<a href="#Shelf">Shelf</a>&nbsp;with&nbsp;the&nbsp;corresponding<br>
+ShelfNumber.<br>
+Delete-body&nbsp;for&nbsp;light/deletePosition.<br>
+&nbsp;<br>
+Attributes<br>
+----------<br>
+ShelfNumber&nbsp;:&nbsp;int<br>
+ShelfNumber&nbsp;of&nbsp;the&nbsp;<a href="#Shelf">Shelf</a>&nbsp;of&nbsp;which&nbsp;a&nbsp;<a href="#ShelfPosition">ShelfPosition</a>&nbsp;has&nbsp;to&nbsp;be&nbsp;deleted.<br>
+PositionId&nbsp;:&nbsp;int<br>
+PositionId&nbsp;of&nbsp;the&nbsp;<a href="#ShelfPosition">ShelfPosition</a>&nbsp;that&nbsp;has&nbsp;to&nbsp;be&nbsp;deleted.<br>&nbsp;</tt></td></tr>
+</table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ESP32">class <strong>ESP32</strong></a>(<a href="https://pydantic-docs.helpmanual.io/usage/models/">pydantic.main.BaseModel</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#ESP32">ESP32</a>(*,&nbsp;Mac_Address:&nbsp;str,&nbsp;isUsed:&nbsp;bool,&nbsp;isOnline:&nbsp;bool)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+Dataclass&nbsp;representing&nbsp;a&nbsp;registered&nbsp;<a href="#ESP32">ESP32</a>.<br>
+Its&nbsp;MAC&nbsp;address&nbsp;is&nbsp;stored&nbsp;along&nbsp;with&nbsp;the&nbsp;status&nbsp;flags&nbsp;:<br>
+isUsed&nbsp;and&nbsp;isOnline.<br>
+When&nbsp;isUsed&nbsp;is&nbsp;True&nbsp;this&nbsp;means&nbsp;that&nbsp;this&nbsp;<a href="#ESP32">ESP32</a>&nbsp;has&nbsp;been<br>
+assigned&nbsp;to&nbsp;a&nbsp;<a href="#Shelf">Shelf</a>&nbsp;in&nbsp;the&nbsp;database.<br>
+isOnline&nbsp;gives&nbsp;information&nbsp;about&nbsp;the&nbsp;connection&nbsp;status&nbsp;of&nbsp;the&nbsp;<a href="#ESP32">ESP32</a>.<br>
+&nbsp;<br>
+Attributes<br>
+----------<br>
+Mac_Address:&nbsp;str<br>
+Physical&nbsp;MAC-Address&nbsp;of&nbsp;an&nbsp;<a href="#ESP32">ESP32</a>.&nbsp;Preferred&nbsp;format&nbsp;is&nbsp;'FF:FF:FF:FF:FF:FF'<br>
+isUsed:&nbsp;bool<br>
+When&nbsp;isUsed&nbsp;is&nbsp;True&nbsp;this&nbsp;means&nbsp;that&nbsp;this&nbsp;<a href="#ESP32">ESP32</a>&nbsp;has&nbsp;been<br>
+assigned&nbsp;to&nbsp;a&nbsp;<a href="#Shelf">Shelf</a>&nbsp;in&nbsp;the&nbsp;database.<br>
+isOnline:&nbsp;bool<br>
+Information&nbsp;about&nbsp;the&nbsp;connection&nbsp;status&nbsp;of&nbsp;the&nbsp;<a href="#ESP32">ESP32</a>.<br>&nbsp;</tt></td></tr>
+</table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ESP32Array">class <strong>ESP32Array</strong></a>(<a href="https://pydantic-docs.helpmanual.io/usage/models/">pydantic.main.BaseModel</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#ESP32Array">ESP32Array</a>(*,&nbsp;ESP32s:&nbsp;List[__init__.<a href="#ESP32">ESP32</a>]&nbsp;=&nbsp;[])&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+Dataclass&nbsp;that&nbsp;represents&nbsp;a&nbsp;List&nbsp;of&nbsp;<a href="#ESP32">ESP32</a>&nbsp;objects.<br>
+This&nbsp;class&nbsp;is&nbsp;needed&nbsp;for&nbsp;the&nbsp;validation&nbsp;while&nbsp;creating&nbsp;the<br>
+<a href="#DB">DB</a>&nbsp;object.<br>
+&nbsp;<br>
+Attributes<br>
+----------<br>
+ESP32s:&nbsp;List[<a href="#ESP32">ESP32</a>]<br>
+List&nbsp;of&nbsp;<a href="#ESP32">ESP32</a>&nbsp;objects&nbsp;contained&nbsp;in&nbsp;the&nbsp;<a href="#DB">DB</a>&nbsp;object.<br>&nbsp;</tt></td></tr>
+</table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ResetESP32">class <strong>ResetESP32</strong></a>(<a href="https://pydantic-docs.helpmanual.io/usage/models/">pydantic.main.BaseModel</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#ResetESP32">ResetESP32</a>(*,&nbsp;Mac_Address:&nbsp;str)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+Dataclass&nbsp;to&nbsp;reset&nbsp;the&nbsp;<a href="#ESP32">ESP32</a>&nbsp;with&nbsp;the&nbsp;specified&nbsp;Mac_Address.<br>
+Post-body&nbsp;for&nbsp;light/resetESP32.<br>
+&nbsp;<br>
+Attributes<br>
+----------<br>
+Mac_Address:&nbsp;str<br>
+MAC-Address&nbsp;of&nbsp;the&nbsp;<a href="#ESP32">ESP32</a>&nbsp;that&nbsp;has&nbsp;to&nbsp;be&nbsp;reset.<br>&nbsp;</tt></td></tr>
+</table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="SetLED">class <strong>SetLED</strong></a>(<a href="https://pydantic-docs.helpmanual.io/usage/models/">pydantic.main.BaseModel</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#SetLED">SetLED</a>(*,&nbsp;Mac_Address:&nbsp;str,&nbsp;LEDs:&nbsp;List[int],&nbsp;Color:&nbsp;str)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+Dataclass&nbsp;to&nbsp;turn&nbsp;a&nbsp;specific&nbsp;LED&nbsp;array&nbsp;on<br>
+independently&nbsp;of&nbsp;a&nbsp;PositionId&nbsp;or&nbsp;the&nbsp;database.<br>
+LEDs&nbsp;will&nbsp;shine&nbsp;with&nbsp;the&nbsp;given&nbsp;color&nbsp;at&nbsp;the&nbsp;<a href="#ESP32">ESP32</a>&nbsp;with&nbsp;the&nbsp;given&nbsp;Mac_Address.<br>
+Post-body&nbsp;for&nbsp;light/setLEDs.<br>
+&nbsp;<br>
+Attributes<br>
+----------<br>
+Mac_Address:&nbsp;str<br>
+MAC-Address&nbsp;of&nbsp;the&nbsp;<a href="#ESP32">ESP32</a>&nbsp;on&nbsp;which&nbsp;the&nbsp;LEDs&nbsp;should&nbsp;be&nbsp;set&nbsp;(turned&nbsp;on).<br>
+LEDs:&nbsp;List[int]<br>
+List&nbsp;of&nbsp;integer&nbsp;values&nbsp;representing&nbsp;the&nbsp;LEDs&nbsp;that&nbsp;should&nbsp;be&nbsp;set&nbsp;(turned&nbsp;on).<br>
+Color:&nbsp;str<br>
+String&nbsp;containing&nbsp;the&nbsp;RGB&nbsp;values&nbsp;with&nbsp;which&nbsp;the&nbsp;LEDs&nbsp;should&nbsp;be&nbsp;set&nbsp;(turned&nbsp;on).<br>
+The&nbsp;format&nbsp;of&nbsp;the&nbsp;string&nbsp;has&nbsp;to&nbsp;be&nbsp;#FFFFFF.<br>&nbsp;</tt></td></tr>
+</table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Shelf">class <strong>Shelf</strong></a>(<a href="https://pydantic-docs.helpmanual.io/usage/models/">pydantic.main.BaseModel</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Shelf">Shelf</a>(*,&nbsp;ShelfNumber:&nbsp;int,&nbsp;Mac_Address:&nbsp;str,&nbsp;Positions:&nbsp;List[__init__.<a href="#ShelfPosition">ShelfPosition</a>]&nbsp;=&nbsp;[])&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+Dataclass&nbsp;that&nbsp;represents&nbsp;a&nbsp;<a href="#Shelf">Shelf</a>.<br>
+It&nbsp;has&nbsp;a&nbsp;unique&nbsp;ShelfNumber&nbsp;and&nbsp;the&nbsp;MAC&nbsp;address<br>
+of&nbsp;the&nbsp;<a href="#ESP32">ESP32</a>&nbsp;that&nbsp;has&nbsp;been&nbsp;assigned&nbsp;to&nbsp;this&nbsp;<a href="#Shelf">Shelf</a>.<br>
+It&nbsp;contains&nbsp;all&nbsp;the&nbsp;<a href="#ShelfPosition">ShelfPosition</a>&nbsp;objects&nbsp;registered&nbsp;in&nbsp;this&nbsp;<a href="#Shelf">Shelf</a>.<br>
+&nbsp;<br>
+Attributes<br>
+----------<br>
+ShelfNumber&nbsp;:&nbsp;int<br>
+This&nbsp;number&nbsp;uniquely&nbsp;identifies&nbsp;the&nbsp;<a href="#Shelf">Shelf</a>.<br>
+Mac_Address:&nbsp;str<br>
+MAC-Address&nbsp;of&nbsp;the&nbsp;<a href="#ESP32">ESP32</a>&nbsp;that&nbsp;has&nbsp;been&nbsp;assigned&nbsp;to&nbsp;this&nbsp;<a href="#Shelf">Shelf</a>.<br>
+Positions:&nbsp;List[<a href="#ShelfPosition">ShelfPosition</a>]<br>
+List&nbsp;of&nbsp;<a href="#ShelfPosition">ShelfPosition</a>&nbsp;objects&nbsp;containing&nbsp;all&nbsp;<a href="#ShelfPosition">ShelfPosition</a>&nbsp;objects&nbsp;stored&nbsp;in&nbsp;this&nbsp;<a href="#Shelf">Shelf</a>.<br>&nbsp;</tt></td></tr>
+</table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ShelfArray">class <strong>ShelfArray</strong></a>(<a href="https://pydantic-docs.helpmanual.io/usage/models/">pydantic.main.BaseModel</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#ShelfArray">ShelfArray</a>(*,&nbsp;Shelves:&nbsp;List[__init__.<a href="#Shelf">Shelf</a>]&nbsp;=&nbsp;[])&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+Dataclass&nbsp;that&nbsp;represents&nbsp;a&nbsp;List&nbsp;of&nbsp;<a href="#Shelf">Shelf</a>&nbsp;objects.<br>
+This&nbsp;class&nbsp;is&nbsp;needed&nbsp;for&nbsp;the&nbsp;validation&nbsp;while&nbsp;creating&nbsp;the<br>
+<a href="#DB">DB</a>&nbsp;object.<br>
+&nbsp;<br>
+Attributes<br>
+----------<br>
+Shelves:&nbsp;List[<a href="#Shelf">Shelf</a>]<br>
+List&nbsp;of&nbsp;<a href="#Shelf">Shelf</a>&nbsp;objects&nbsp;contained&nbsp;in&nbsp;the&nbsp;<a href="#DB">DB</a>&nbsp;object.<br>&nbsp;</tt></td></tr>
+</table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ShelfPosition">class <strong>ShelfPosition</strong></a>(<a href="https://pydantic-docs.helpmanual.io/usage/models/">pydantic.main.BaseModel</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#ShelfPosition">ShelfPosition</a>(*,&nbsp;ShelfNumber:&nbsp;int,&nbsp;PositionId:&nbsp;int,&nbsp;LEDs:&nbsp;List[int]&nbsp;=&nbsp;[])&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+Dataclass&nbsp;that&nbsp;represent&nbsp;a&nbsp;position<br>
+in&nbsp;a&nbsp;<a href="#Shelf">Shelf</a>.&nbsp;It&nbsp;contains&nbsp;the&nbsp;number&nbsp;of&nbsp;the<br>
+<a href="#Shelf">Shelf</a>&nbsp;it&nbsp;is&nbsp;in&nbsp;and&nbsp;its&nbsp;unique&nbsp;ID.&nbsp;The&nbsp;LEDs<br>
+int&nbsp;list&nbsp;containing&nbsp;all&nbsp;LEDs&nbsp;of&nbsp;the&nbsp;position<br>
+int&nbsp;the&nbsp;LED&nbsp;stripe.<br>
+&nbsp;<br>
+Attributes<br>
+----------<br>
+ShelfNumber&nbsp;:&nbsp;int<br>
+ShelfNumber&nbsp;of&nbsp;the&nbsp;<a href="#Shelf">Shelf</a>&nbsp;in&nbsp;which&nbsp;this&nbsp;<a href="#ShelfPosition">ShelfPosition</a>&nbsp;is&nbsp;stored.<br>
+PositionId&nbsp;:&nbsp;int<br>
+PositionId&nbsp;of&nbsp;the&nbsp;<a href="#ShelfPosition">ShelfPosition</a>&nbsp;that&nbsp;uniquely&nbsp;identifies&nbsp;this&nbsp;position&nbsp;on&nbsp;the&nbsp;<a href="#Shelf">Shelf</a>.<br>
+LEDs:&nbsp;List[int]<br>
+List&nbsp;of&nbsp;integer&nbsp;values&nbsp;representing&nbsp;the&nbsp;LEDs&nbsp;that&nbsp;belong&nbsp;to&nbsp;this&nbsp;<a href="#ShelfPosition">ShelfPosition</a>.<br>
+These&nbsp;integer&nbsp;values&nbsp;are&nbsp;in&nbsp;the&nbsp;range&nbsp;0-255&nbsp;(a&nbsp;byte&nbsp;sized&nbsp;unsigned&nbsp;integer).<br>&nbsp;</tt></td></tr>
+</table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ShelfSelection">class <strong>ShelfSelection</strong></a>(<a href="https://pydantic-docs.helpmanual.io/usage/models/">pydantic.main.BaseModel</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#ShelfSelection">ShelfSelection</a>(*,&nbsp;ShelfNumber:&nbsp;int)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+Dataclass&nbsp;to&nbsp;ensure&nbsp;a&nbsp;ShelfNumber&nbsp;from<br>
+int&nbsp;type&nbsp;was&nbsp;given.<br>
+Post-body&nbsp;for&nbsp;light/turnOffAll.<br>
+&nbsp;<br>
+Attributes<br>
+----------<br>
+ShelfNumber&nbsp;:&nbsp;int<br>
+ShelfNumber&nbsp;of&nbsp;the&nbsp;<a href="#Shelf">Shelf</a>&nbsp;to&nbsp;be&nbsp;selected.<br>&nbsp;</tt></td></tr>
+</table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ShelfSelectionWithColor">class <strong>ShelfSelectionWithColor</strong></a>(<a href="https://pydantic-docs.helpmanual.io/usage/models/">pydantic.main.BaseModel</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#ShelfSelectionWithColor">ShelfSelectionWithColor</a>(*,&nbsp;ShelfNumber:&nbsp;int,&nbsp;Color:&nbsp;str)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+Dataclass&nbsp;to&nbsp;ensure&nbsp;a&nbsp;ShelfNumber&nbsp;from<br>
+int&nbsp;type&nbsp;was&nbsp;given&nbsp;and&nbsp;a&nbsp;color.<br>
+Post-body&nbsp;for&nbsp;light/turnOnAll.<br>
+&nbsp;<br>
+Attributes<br>
+----------<br>
+ShelfNumber&nbsp;:&nbsp;int<br>
+ShelfNumber&nbsp;of&nbsp;the&nbsp;<a href="#Shelf">Shelf</a>&nbsp;to&nbsp;be&nbsp;selected.<br>
+Color&nbsp;:&nbsp;str<br>
+String&nbsp;containing&nbsp;the&nbsp;RGB&nbsp;values&nbsp;with&nbsp;which&nbsp;the&nbsp;LEDs&nbsp;should&nbsp;be&nbsp;turned&nbsp;on.<br>
+The&nbsp;format&nbsp;of&nbsp;the&nbsp;string&nbsp;has&nbsp;to&nbsp;be&nbsp;#FFFFFF.<br>&nbsp;</tt></td></tr>
+</table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="TurnOff">class <strong>TurnOff</strong></a>(<a href="https://pydantic-docs.helpmanual.io/usage/models/">pydantic.main.BaseModel</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#TurnOff">TurnOff</a>(*,&nbsp;ShelfNumber:&nbsp;int,&nbsp;PositionId:&nbsp;int)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+Dataclass&nbsp;to&nbsp;turn&nbsp;LEDs&nbsp;off&nbsp;in<br>
+the&nbsp;given&nbsp;<a href="#Shelf">Shelf</a>&nbsp;at&nbsp;the&nbsp;given&nbsp;position.<br>
+Post-body&nbsp;for&nbsp;light/turnOff.<br>
+&nbsp;<br>
+Attributes<br>
+----------<br>
+ShelfNumber&nbsp;:&nbsp;int<br>
+ShelfNumber&nbsp;of&nbsp;the&nbsp;<a href="#Shelf">Shelf</a>&nbsp;on&nbsp;which&nbsp;LEDs&nbsp;should&nbsp;be&nbsp;turned&nbsp;off.<br>
+PositionId&nbsp;:&nbsp;int<br>
+PositionId&nbsp;of&nbsp;the&nbsp;<a href="#ShelfPosition">ShelfPosition</a>&nbsp;on&nbsp;which&nbsp;LEDs&nbsp;should&nbsp;be&nbsp;turned&nbsp;off.<br>&nbsp;</tt></td></tr>
+</table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="TurnOn">class <strong>TurnOn</strong></a>(<a href="https://pydantic-docs.helpmanual.io/usage/models/">pydantic.main.BaseModel</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#TurnOn">TurnOn</a>(*,&nbsp;ShelfNumber:&nbsp;int,&nbsp;PositionId:&nbsp;int,&nbsp;Color:&nbsp;str)&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+Dataclass&nbsp;to&nbsp;turn&nbsp;LEDs&nbsp;on&nbsp;in<br>
+the&nbsp;given&nbsp;<a href="#Shelf">Shelf</a>&nbsp;at&nbsp;the&nbsp;given&nbsp;position.<br>
+Post-body&nbsp;for&nbsp;light/turnOn.<br>
+&nbsp;<br>
+Attributes<br>
+----------<br>
+ShelfNumber&nbsp;:&nbsp;int<br>
+ShelfNumber&nbsp;of&nbsp;the&nbsp;<a href="#Shelf">Shelf</a>&nbsp;on&nbsp;which&nbsp;LEDs&nbsp;should&nbsp;be&nbsp;turned&nbsp;on.<br>
+PositionId&nbsp;:&nbsp;int<br>
+PositionId&nbsp;of&nbsp;the&nbsp;<a href="#ShelfPosition">ShelfPosition</a>&nbsp;on&nbsp;which&nbsp;LEDs&nbsp;should&nbsp;be&nbsp;turned&nbsp;on.<br>
+Color&nbsp;:&nbsp;str<br>
+String&nbsp;containing&nbsp;the&nbsp;RGB&nbsp;values&nbsp;with&nbsp;which&nbsp;the&nbsp;LEDs&nbsp;should&nbsp;be&nbsp;turned&nbsp;on.<br>
+The&nbsp;format&nbsp;of&nbsp;the&nbsp;string&nbsp;has&nbsp;to&nbsp;be&nbsp;#FFFFFF.<br>&nbsp;</tt></td></tr>
+</table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="UnsetLED">class <strong>UnsetLED</strong></a>(<a href="https://pydantic-docs.helpmanual.io/usage/models/">pydantic.main.BaseModel</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#UnsetLED">UnsetLED</a>(*,&nbsp;Mac_Address:&nbsp;str,&nbsp;LEDs:&nbsp;List[int])&nbsp;-&amp;gt;&nbsp;None<br>
+&nbsp;<br>
+Dataclass&nbsp;to&nbsp;turn&nbsp;a&nbsp;specific&nbsp;LED&nbsp;array&nbsp;off<br>
+independently&nbsp;of&nbsp;a&nbsp;PositionId&nbsp;or&nbsp;the&nbsp;database.<br>
+LEDs&nbsp;will&nbsp;be&nbsp;turned&nbsp;off&nbsp;at&nbsp;the&nbsp;<a href="#ESP32">ESP32</a>&nbsp;with&nbsp;the&nbsp;given&nbsp;Mac_Address.<br>
+Post-body&nbsp;for&nbsp;light/unsetLEDs.<br>
+&nbsp;<br>
+Attributes<br>
+----------<br>
+Mac_Address:&nbsp;str<br>
+MAC-Address&nbsp;of&nbsp;the&nbsp;<a href="#ESP32">ESP32</a>&nbsp;on&nbsp;which&nbsp;the&nbsp;LEDs&nbsp;should&nbsp;be&nbsp;unset&nbsp;(turned&nbsp;off).<br>
+LEDs:&nbsp;List[int]<br>
+List&nbsp;of&nbsp;integer&nbsp;values&nbsp;representing&nbsp;the&nbsp;LEDs&nbsp;that&nbsp;should&nbsp;be&nbsp;unset&nbsp;(turned&nbsp;off).<br>&nbsp;</tt></td></tr>
+</table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>List</strong> = typing.List</td></tr></table>
+</body></html>

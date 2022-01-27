@@ -1,0 +1,95 @@
+@startuml
+
+skinparam nodesep 5
+skinparam ComponentBorderColor transparent
+skinparam Shadowing false
+
+left to right direction
+component {
+    node "Raspberry Pi n" as n1 {
+        rectangle "Embedded " #line.dashed {
+            storage "Docker Compose Server   " {
+                Storage "MQTT Broker "
+            }
+            storage "PIP Environment " {
+                Storage "MQTT Client  "
+                Storage "REST API Server "
+                (REST API Server ) <--> (MQTT Client  )
+            }
+            node "ESP32 " as n2 {
+                Storage "MQTT Client   "
+            }
+            (MQTT Client  ) <--> (MQTT Broker )
+            (MQTT Broker ) "1" <--> "\t1...n\n\n" (MQTT Client   )
+        }
+    }
+
+left to right direction
+    node "Raspberry Pi 1" as n3 {
+        rectangle "Embedded" #line.dashed {
+            storage "Docker Compose Server  " {
+                Storage "MQTT Broker"
+            }
+            storage "PIP Environment" {
+                Storage "MQTT Client"
+                Storage "REST API Server"
+                top to bottom direction
+                (REST API Server) <--> (MQTT Client)
+            }
+
+            node "ESP32" as n4 {
+                Storage "MQTT Client "
+            }
+            (MQTT Client) <-> (MQTT Broker)
+            (MQTT Broker) "1" <--> "\t1...n\n\n" (MQTT Client )
+        }
+
+        rectangle "Backend" #line.dashed {
+            storage "Docker Compose Server " {
+                Storage "MongeDB"
+                Storage "Express.js"
+            }
+        }
+
+        rectangle "Frontend" #line.dashed {
+            storage "Docker Compose Server" {
+                Storage "Vue.js Webserver"
+            }
+        }
+        (Express.js) "1" <--> "\t 1\n\n" (REST API Server)
+    }
+
+    node EndUser {
+        Storage "PBL Client"
+    }
+
+    (PBL Client) "\nn" <--> "1\n\n" (Vue.js Webserver)
+    (Vue.js Webserver) "1" <--> "1" (Express.js)
+    (MongeDB) <--> (Express.js)
+    (Express.js) "1" <-> "n" n1
+    n1 <-> (REST API Server )
+}
+
+file "Legend:" {
+    node "Device" as n5
+    rectangle "Team"
+    storage "Software"
+    label "<size:18>Notes:</size> \n All mentions of "Docker Compose Server \n are the very same instance. \n There is on main Pi which runs Frontend, \n Backend and Embedded software. \n There can be more Pi's in different Rooms \n running Embedded software." as l1
+
+    n5 -[hidden] Team
+    Team -[hidden] Software
+    Software -[hidden] l1
+}
+
+legend bottom
+  | |= Technische Hochschule Mittelhessen – THM \n University of Applied Sciences |
+  | Repository | [[https://git.thm.de/softwaretechnik-projekt-pick-by-light-system-wise21_22/pbl-embedded-system/wiki/]] |
+  | UML-Tool| PlantUML v1.2021.11|
+  | Model version| 1.0 |
+  | Creation date| 09.12.2021 |
+  | Creator| Joel Silas Zelenak and David Lotz |
+  | Mail | joel.zelenak@mni.thm.de |
+  | Last change| 25.01.2022 |
+end legend
+
+@enduml

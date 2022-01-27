@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module __init__</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>Api</strong></big></big></font></td
+><td align=right valign=bottom
+></td></tr></table>
+    <p><tt>Submodule&nbsp;that&nbsp;manages&nbsp;the&nbsp;REST-API&nbsp;for&nbsp;the&nbsp;HttpToMqtt&nbsp;Server.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="https://docs.python.org/3/library/datetime.html">datetime</a><br>
+</td><td width="25%" valign=top><a href="https://docs.python.org/3/library/re.html">re</a><br>
+</td><td width="25%" valign=top><a href="https://pypi.org/project/starlette/">starlette.status</a><br>
+</td><td width="25%" valign=top><a href="https://pypi.org/project/uvicorn/">uvicorn</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt></dt><dd>
+<dl>
+<dt></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Api">class <strong>Api</strong></a>(builtins.object)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Api">Api</a>(ip:&nbsp;str,&nbsp;port:&nbsp;int,&nbsp;mqtt,&nbsp;data_manager)<br>
+&nbsp;<br>
+Main&nbsp;class&nbsp;of&nbsp;the&nbsp;<a href="#Api">Api</a>&nbsp;submodule.<br>
+&nbsp;<br>
+...<br>
+&nbsp;<br>
+Attributes<br>
+----------<br>
+&nbsp;<br>
+ip&nbsp;:&nbsp;str<br>
+&nbsp;&nbsp;&nbsp;&nbsp;IP&nbsp;address&nbsp;of&nbsp;the&nbsp;host&nbsp;from&nbsp;the&nbsp;HttpToMqtt&nbsp;Server.<br>
+port&nbsp;:&nbsp;int<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Port&nbsp;on&nbsp;which&nbsp;the&nbsp;HttpToMqtt&nbsp;Server&nbsp;is&nbsp;running.<br>
+mqtt&nbsp;:&nbsp;Mqtt<br>
+&nbsp;&nbsp;&nbsp;&nbsp;MQTT&nbsp;module&nbsp;that&nbsp;manages&nbsp;the&nbsp;MQTT&nbsp;communication<br>
+&nbsp;&nbsp;&nbsp;&nbsp;between&nbsp;the&nbsp;HttpToMqtt&nbsp;Server&nbsp;and&nbsp;ESP32s<br>
+data_manager&nbsp;:&nbsp;DataManager<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Object&nbsp;representing&nbsp;the&nbsp;data&nbsp;manager<br>
+&nbsp;&nbsp;&nbsp;&nbsp;that&nbsp;adds,&nbsp;updates,&nbsp;finds&nbsp;and&nbsp;deletes&nbsp;data&nbsp;from&nbsp;the&nbsp;JSON&nbsp;database.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Api-__init__"><strong>__init__</strong></a>(self, ip: str, port: int, mqtt, data_manager)</dt><dd><tt>Initialize&nbsp;an&nbsp;<a href="#Api">Api</a>&nbsp;object&nbsp;which&nbsp;handles&nbsp;the&nbsp;REST-API</tt></dd></dl>
+
+<dl><dt><a name="Api-run"><strong>run</strong></a>(self)</dt><dd><tt>Run&nbsp;the&nbsp;REST-API.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>app</strong> = &lt;fastapi.applications.FastAPI object&gt;</dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-color_string_to_byte_array"><strong>color_string_to_byte_array</strong></a>(color_as_string: str) -&gt; bytearray</dt><dd><tt>Convert&nbsp;color&nbsp;string&nbsp;to&nbsp;a&nbsp;bytearray&nbsp;with&nbsp;three&nbsp;bytes,&nbsp;each&nbsp;one<br>
+for&nbsp;the&nbsp;RGB&nbsp;respectively.<br>
+If&nbsp;the&nbsp;specified&nbsp;format&nbsp;is&nbsp;not&nbsp;adhered&nbsp;to&nbsp;then&nbsp;None&nbsp;is&nbsp;returned.<br>
+&nbsp;<br>
+Parameters<br>
+-------<br>
+color_as_string&nbsp;:&nbsp;str<br>
+&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;containing&nbsp;the&nbsp;RGB&nbsp;values&nbsp;to&nbsp;be&nbsp;converted&nbsp;to&nbsp;a&nbsp;bytearray.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Format&nbsp;has&nbsp;to&nbsp;be&nbsp;'#FFFFFF'&nbsp;just&nbsp;containing&nbsp;hex&nbsp;values.&nbsp;Not&nbsp;case-sensitive.<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+A&nbsp;bytearray&nbsp;containing&nbsp;the&nbsp;three&nbsp;RGB&nbsp;values.<br>
+If&nbsp;the&nbsp;specified&nbsp;format&nbsp;is&nbsp;not&nbsp;adhered&nbsp;to&nbsp;then&nbsp;None&nbsp;is&nbsp;returned.</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>List</strong> = typing.List<br>
+<strong>TIMEOUT</strong> = 5<br>
+<strong>Union</strong> = typing.Union<br>
+<strong>log</strong> = &lt;Logger __init__ (WARNING)&gt;</td></tr></table>
+</body></html>

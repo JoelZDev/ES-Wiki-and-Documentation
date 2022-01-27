@@ -1,0 +1,19 @@
+@startuml
+skinparam note {
+BackgroundColor white
+BorderColor black
+}
+
+:Empty microSD\nRaspberry Pi;
+floating note right: For the Mqtt server on the raspi you need a microSD atleast\n 16GB big aswell as a raspi >=3B for enough performance
+:Create bootable\nImage;
+floating note right: To create a bootable image for the Mqtt server we need\n an image for the pi, best is raspbian for this. Can be found\n on raspberrypi.org and a imager tool like Balena Etcher.\n Flash the sdcard with the image via the tool.
+:Install Docker;
+floating note right: To install the Mqtt server we will use Docker so we can run\n more then one service on the pi without using up too much\n resources. The installation guide will be in the repo.
+:get Mosquitto\nimage for Docker;
+floating note right: Get Mosquitto broker installed via the guide in the repo.\n After the first start add the config file to the pi just as the\n guide discribes it.
+:Set config file\nfor Mosquitto\ninto the Docker;
+floating note right: Now just need to add the config via the Docker command\n as the guide will explain. With the config file the server will\n be available in the Network which contains the pi.
+:Test service;
+floating note right: In the repo there will soon be a test service to test if the\n mqtt service is running correctly.
+@enduml

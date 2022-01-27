@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module __init__</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>Mqtt</strong></big></big></font></td
+><td align=right valign=bottom
+></td></tr></table>
+    <p><tt>Submodule&nbsp;that&nbsp;manages&nbsp;the&nbsp;MQTT&nbsp;communication&nbsp;between&nbsp;the&nbsp;HttpToMqtt&nbsp;Server&nbsp;and&nbsp;ESP32s.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="https://docs.python.org/3/library/json.html">json</a><br>
+</td><td width="25%" valign=top><a href="https://pypi.org/project/paho-mqtt/">paho.mqtt.client</a><br>
+</td><td width="25%" valign=top><a href="https://docs.python.org/3/library/random.html">random</a><br>
+</td><td width="25%" valign=top><a href="https://docs.python.org/3/library/time.html">time</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt></dt><dd>
+<dl>
+<dt></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Mqtt">class <strong>Mqtt</strong></a>(builtins.object)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Mqtt">Mqtt</a>(path:&nbsp;str,&nbsp;data_manager)<br>
+&nbsp;<br>
+A&nbsp;class&nbsp;to&nbsp;represent&nbsp;a&nbsp;MQTT&nbsp;module&nbsp;that&nbsp;has&nbsp;a&nbsp;MQTT&nbsp;client<br>
+and&nbsp;access&nbsp;to&nbsp;a&nbsp;JSON&nbsp;database.<br>
+&nbsp;<br>
+...<br>
+&nbsp;<br>
+Attributes<br>
+----------<br>
+conf_path&nbsp;:&nbsp;str<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Path&nbsp;to&nbsp;the&nbsp;configuration&nbsp;JSON&nbsp;file&nbsp;that&nbsp;contains<br>
+&nbsp;&nbsp;&nbsp;&nbsp;all&nbsp;the&nbsp;necessary&nbsp;information&nbsp;to&nbsp;set&nbsp;up&nbsp;the&nbsp;MQTT&nbsp;client.<br>
+data_manager&nbsp;:&nbsp;DataManager<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Object&nbsp;representing&nbsp;the&nbsp;data&nbsp;manager<br>
+&nbsp;&nbsp;&nbsp;&nbsp;that&nbsp;adds,&nbsp;updates,&nbsp;finds&nbsp;and&nbsp;deletes&nbsp;data&nbsp;from&nbsp;the&nbsp;JSON&nbsp;database.<br>
+light_ack_queue&nbsp;:&nbsp;list[ACK]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Queue&nbsp;for&nbsp;the&nbsp;ACKs&nbsp;coming&nbsp;from&nbsp;all&nbsp;operations&nbsp;over&nbsp;the&nbsp;pbl/+/light&nbsp;MQTT&nbsp;topic.<br>
+config_ack_queue&nbsp;:&nbsp;list[ACK]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Queue&nbsp;for&nbsp;the&nbsp;ACKs&nbsp;coming&nbsp;from&nbsp;all&nbsp;operations&nbsp;over&nbsp;the&nbsp;pbl/+/config&nbsp;MQTT&nbsp;topic.<br>
+config&nbsp;:&nbsp;dict<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Object&nbsp;representing&nbsp;the&nbsp;deserialized&nbsp;JSON&nbsp;file&nbsp;in&nbsp;conf_path.<br>
+client&nbsp;:&nbsp;paho.mqtt.client.Client<br>
+&nbsp;&nbsp;&nbsp;&nbsp;MQTT&nbsp;client&nbsp;that&nbsp;sends&nbsp;and&nbsp;receives&nbsp;messages&nbsp;to&nbsp;and&nbsp;from&nbsp;the&nbsp;ESP32s.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Mqtt-__init__"><strong>__init__</strong></a>(self, path: str, data_manager)</dt><dd><tt>Constructs&nbsp;an&nbsp;instance&nbsp;of&nbsp;a&nbsp;MQTT&nbsp;module&nbsp;that&nbsp;has&nbsp;access&nbsp;to&nbsp;stored<br>
+data&nbsp;in&nbsp;a&nbsp;JSON&nbsp;file.<br>
+&nbsp;<br>
+Parameters<br>
+----------<br>
+path&nbsp;:&nbsp;str<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Path&nbsp;to&nbsp;the&nbsp;configuration&nbsp;JSON&nbsp;file&nbsp;that&nbsp;contains<br>
+&nbsp;&nbsp;&nbsp;&nbsp;all&nbsp;the&nbsp;necessary&nbsp;information&nbsp;to&nbsp;set&nbsp;up&nbsp;the&nbsp;MQTT&nbsp;client.<br>
+data_manager&nbsp;:&nbsp;DataManager<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Object&nbsp;representing&nbsp;the&nbsp;data&nbsp;manager<br>
+&nbsp;&nbsp;&nbsp;&nbsp;that&nbsp;adds,&nbsp;updates,&nbsp;finds&nbsp;and&nbsp;deletes&nbsp;data&nbsp;from&nbsp;the&nbsp;JSON&nbsp;database.</tt></dd></dl>
+
+<dl><dt><a name="Mqtt-publish_with_ack"><strong>publish_with_ack</strong></a>(self, timeout: int, mac_address: str, select_queue: str, topic: str, payload: bytearray) -&gt; int</dt><dd><tt>Publishes&nbsp;a&nbsp;MQTT&nbsp;message&nbsp;(payload)&nbsp;to&nbsp;the&nbsp;specified&nbsp;topic&nbsp;using&nbsp;the<br>
+specified&nbsp;select_queue&nbsp;("light_ack"&nbsp;or&nbsp;"config_ack")&nbsp;in&nbsp;order&nbsp;to<br>
+get&nbsp;ACKs&nbsp;from&nbsp;the&nbsp;ESP32&nbsp;to&nbsp;which&nbsp;the&nbsp;message&nbsp;was&nbsp;sent.<br>
+&nbsp;<br>
+If&nbsp;in&nbsp;'timeout'&nbsp;seconds&nbsp;an&nbsp;ACK&nbsp;has&nbsp;not&nbsp;returned&nbsp;from&nbsp;the&nbsp;ESP32<br>
+to&nbsp;which&nbsp;the&nbsp;message&nbsp;was&nbsp;sent&nbsp;the&nbsp;status&nbsp;code&nbsp;504&nbsp;(HTTP_504_GATEWAY_TIMEOUT)<br>
+is&nbsp;returned.&nbsp;After&nbsp;an&nbsp;ACK&nbsp;has&nbsp;come&nbsp;the&nbsp;status&nbsp;code&nbsp;200&nbsp;(HTTP_200_OK)&nbsp;is&nbsp;returned.<br>
+&nbsp;<br>
+Parameters<br>
+----------<br>
+timeout&nbsp;:&nbsp;int<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Seconds&nbsp;to&nbsp;wait&nbsp;for&nbsp;an&nbsp;ACK.<br>
+mac_address&nbsp;:&nbsp;str<br>
+&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;representing&nbsp;the&nbsp;MAC-address&nbsp;of&nbsp;the&nbsp;ESP32&nbsp;that&nbsp;the&nbsp;message&nbsp;is&nbsp;being&nbsp;sent&nbsp;to.<br>
+select_queue&nbsp;:&nbsp;str<br>
+&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;to&nbsp;choose&nbsp;which&nbsp;queue&nbsp;should&nbsp;be&nbsp;used&nbsp;for&nbsp;waiting&nbsp;for&nbsp;the&nbsp;ACK.&nbsp;There&nbsp;are&nbsp;just<br>
+&nbsp;&nbsp;&nbsp;&nbsp;two&nbsp;possible&nbsp;values,&nbsp;"light_ack"&nbsp;or&nbsp;"config_ack".<br>
+topic&nbsp;:&nbsp;str<br>
+&nbsp;&nbsp;&nbsp;&nbsp;MQTT&nbsp;topic&nbsp;to&nbsp;which&nbsp;the&nbsp;message&nbsp;should&nbsp;be&nbsp;published.<br>
+payload&nbsp;:&nbsp;bytearray<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Byte&nbsp;array&nbsp;containing&nbsp;the&nbsp;raw&nbsp;data&nbsp;to&nbsp;be&nbsp;sent.<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+A&nbsp;status&nbsp;code&nbsp;that&nbsp;depends&nbsp;on&nbsp;how&nbsp;the&nbsp;operation&nbsp;went.&nbsp;If&nbsp;in&nbsp;'timeout'&nbsp;seconds<br>
+an&nbsp;ACK&nbsp;has&nbsp;not&nbsp;returned&nbsp;from&nbsp;the&nbsp;ESP32&nbsp;to&nbsp;which&nbsp;the&nbsp;message&nbsp;was&nbsp;sent&nbsp;the&nbsp;status<br>
+code&nbsp;504&nbsp;(HTTP_504_GATEWAY_TIMEOUT)&nbsp;is&nbsp;returned.&nbsp;After&nbsp;an&nbsp;ACK&nbsp;has&nbsp;come&nbsp;the<br>
+status&nbsp;code&nbsp;200&nbsp;(HTTP_200_OK)&nbsp;is&nbsp;returned.</tt></dd></dl>
+
+<dl><dt><a name="Mqtt-run"><strong>run</strong></a>(self) -&gt; paho.mqtt.client.Client</dt><dd><tt>Registers&nbsp;the&nbsp;callbacks&nbsp;for&nbsp;the&nbsp;MQTT&nbsp;client&nbsp;and&nbsp;connects&nbsp;it&nbsp;to&nbsp;the<br>
+specified&nbsp;MQTT-broker&nbsp;in&nbsp;the&nbsp;configuration&nbsp;JSON&nbsp;file.&nbsp;Then&nbsp;it&nbsp;starts<br>
+the&nbsp;loops&nbsp;that&nbsp;receive&nbsp;messages&nbsp;and&nbsp;handles&nbsp;them.<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+The&nbsp;reference&nbsp;to&nbsp;the&nbsp;MQTT&nbsp;client&nbsp;of&nbsp;the&nbsp;MQTT&nbsp;module.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>log</strong> = &lt;Logger __init__ (WARNING)&gt;</td></tr></table>
+</body></html>

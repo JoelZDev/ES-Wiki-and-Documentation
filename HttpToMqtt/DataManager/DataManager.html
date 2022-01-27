@@ -1,0 +1,364 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module __init__</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>DataManager</strong></big></big></font></td
+><td align=right valign=bottom
+></td></tr></table>
+    <p><tt>Submodule&nbsp;that&nbsp;manages&nbsp;the&nbsp;JSON&nbsp;database&nbsp;containing&nbsp;Shelves&nbsp;and&nbsp;ESP32s.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="https://docs.python.org/3/library/datetime.html">datetime</a><br>
+</td><td width="25%" valign=top><a href="https://docs.python.org/3/library/json.html">json</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt></dt><dd>
+<dl>
+<dt></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="DataManager">class <strong>DataManager</strong></a>(builtins.object)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#DataManager">DataManager</a>(path_to_json_file:&nbsp;pathlib.Path)<br>
+&nbsp;<br>
+A&nbsp;class&nbsp;that&nbsp;manages&nbsp;a&nbsp;JSON&nbsp;database&nbsp;that&nbsp;complies&nbsp;to<br>
+the&nbsp;structure&nbsp;of&nbsp;the&nbsp;Class&nbsp;DB&nbsp;in&nbsp;Types/__init__.py.<br>
+&nbsp;<br>
+...<br>
+&nbsp;<br>
+Attributes<br>
+----------<br>
+__db&nbsp;:&nbsp;DB<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Class&nbsp;containing&nbsp;a&nbsp;Types.ShelfArray&nbsp;object&nbsp;and&nbsp;a&nbsp;Types.ESP32Array&nbsp;object&nbsp;that&nbsp;stores<br>
+&nbsp;&nbsp;&nbsp;&nbsp;all&nbsp;data&nbsp;during&nbsp;runtime&nbsp;and&nbsp;saves&nbsp;it&nbsp;to&nbsp;a&nbsp;JSON&nbsp;file&nbsp;when&nbsp;needed.&nbsp;This&nbsp;DB&nbsp;object&nbsp;is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;referred&nbsp;to&nbsp;as&nbsp;the&nbsp;"database"&nbsp;in&nbsp;the&nbsp;entire&nbsp;documentation.&nbsp;When&nbsp;talking&nbsp;about&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;database&nbsp;it's&nbsp;a&nbsp;reference&nbsp;to&nbsp;this&nbsp;DB&nbsp;object.<br>
+__path_to_json_file&nbsp;:&nbsp;Path<br>
+&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;with&nbsp;the&nbsp;path&nbsp;to&nbsp;the&nbsp;JSON&nbsp;file&nbsp;that&nbsp;holds&nbsp;the&nbsp;database&nbsp;or&nbsp;in&nbsp;which&nbsp;the&nbsp;database<br>
+&nbsp;&nbsp;&nbsp;&nbsp;has&nbsp;to&nbsp;be&nbsp;stored.<br>
+__path_to_json_file_backup&nbsp;:&nbsp;Path<br>
+&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;with&nbsp;the&nbsp;path&nbsp;to&nbsp;the&nbsp;JSON&nbsp;file&nbsp;that&nbsp;holds&nbsp;a&nbsp;backup&nbsp;of&nbsp;the&nbsp;database.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="DataManager-__init__"><strong>__init__</strong></a>(self, path_to_json_file: pathlib.Path)</dt><dd><tt>Constructs&nbsp;an&nbsp;instance&nbsp;of&nbsp;<a href="#DataManager">DataManager</a>.<br>
+&nbsp;<br>
+Parameters<br>
+-------<br>
+path_to_json_file&nbsp;:&nbsp;Path<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Path&nbsp;object&nbsp;containing&nbsp;the&nbsp;path&nbsp;to&nbsp;the&nbsp;JSON&nbsp;file&nbsp;that&nbsp;holds&nbsp;the&nbsp;database.<br>
+&nbsp;<br>
+Returns<br>
+--------<br>
+A&nbsp;<a href="#DataManager">DataManager</a>&nbsp;object&nbsp;when&nbsp;the&nbsp;specified&nbsp;path&nbsp;ends&nbsp;with&nbsp;'.json'.<br>
+If&nbsp;the&nbsp;specified&nbsp;path&nbsp;leads&nbsp;to&nbsp;an&nbsp;existing&nbsp;file,&nbsp;this&nbsp;has&nbsp;to&nbsp;comply&nbsp;to<br>
+the&nbsp;JSON&nbsp;structure&nbsp;of&nbsp;the&nbsp;Class&nbsp;DB&nbsp;in&nbsp;Types/__init__.py,&nbsp;otherwise&nbsp;an&nbsp;error&nbsp;will&nbsp;occur.<br>
+If&nbsp;the&nbsp;file&nbsp;in&nbsp;the&nbsp;specified&nbsp;path&nbsp;doesn't&nbsp;exist&nbsp;then&nbsp;the&nbsp;<a href="#DataManager">DataManager</a>&nbsp;is&nbsp;initialized<br>
+with&nbsp;an&nbsp;empty&nbsp;file/database.<br>
+If&nbsp;the&nbsp;specified&nbsp;path&nbsp;does&nbsp;not&nbsp;end&nbsp;with&nbsp;'.json'&nbsp;then&nbsp;an&nbsp;exception&nbsp;is&nbsp;raised.</tt></dd></dl>
+
+<dl><dt><a name="DataManager-add_esp32"><strong>add_esp32</strong></a>(self, esp32: HttpToMqtt.Types.ESP32) -&gt; bool</dt><dd><tt>Method&nbsp;to&nbsp;add&nbsp;an&nbsp;ESP32&nbsp;to&nbsp;the&nbsp;database.<br>
+&nbsp;<br>
+Parameters<br>
+--------<br>
+esp32&nbsp;:&nbsp;ESP32<br>
+ESP32&nbsp;object&nbsp;to&nbsp;be&nbsp;added&nbsp;to&nbsp;the&nbsp;database.<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+True&nbsp;if&nbsp;the&nbsp;ESP32&nbsp;object&nbsp;could&nbsp;be&nbsp;added&nbsp;to&nbsp;the&nbsp;database.<br>
+False&nbsp;if&nbsp;the&nbsp;ESP32&nbsp;object&nbsp;not&nbsp;be&nbsp;added&nbsp;to&nbsp;the&nbsp;database.</tt></dd></dl>
+
+<dl><dt><a name="DataManager-add_position"><strong>add_position</strong></a>(self, shelf: HttpToMqtt.Types.Shelf, shelf_position: HttpToMqtt.Types.ShelfPosition) -&gt; bool</dt><dd><tt>Method&nbsp;to&nbsp;add&nbsp;a&nbsp;ShelfPosition&nbsp;to&nbsp;a&nbsp;Shelf&nbsp;in&nbsp;the&nbsp;database.<br>
+&nbsp;<br>
+Parameters<br>
+---------<br>
+shelf&nbsp;:&nbsp;Shelf<br>
+Shelf&nbsp;to&nbsp;be&nbsp;added.<br>
+shelf_position&nbsp;:&nbsp;ShelfPosition<br>
+Shelf&nbsp;position&nbsp;to&nbsp;be&nbsp;added&nbsp;to&nbsp;the&nbsp;given&nbsp;Shelf.<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+True&nbsp;if&nbsp;the&nbsp;shelf&nbsp;position&nbsp;could&nbsp;be&nbsp;added&nbsp;to&nbsp;the&nbsp;shelf&nbsp;in&nbsp;the&nbsp;database.<br>
+False&nbsp;if&nbsp;the&nbsp;shelf&nbsp;position&nbsp;could&nbsp;not&nbsp;be&nbsp;added&nbsp;to&nbsp;the&nbsp;shelf&nbsp;in&nbsp;the&nbsp;database.</tt></dd></dl>
+
+<dl><dt><a name="DataManager-add_shelf"><strong>add_shelf</strong></a>(self, shelf: HttpToMqtt.Types.Shelf) -&gt; bool</dt><dd><tt>Method&nbsp;to&nbsp;add&nbsp;a&nbsp;Shelf&nbsp;to&nbsp;the&nbsp;database.<br>
+&nbsp;<br>
+Parameters<br>
+---------<br>
+shelf&nbsp;:&nbsp;Shelf<br>
+Shelf&nbsp;to&nbsp;be&nbsp;added.<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+True&nbsp;if&nbsp;the&nbsp;shelf&nbsp;could&nbsp;be&nbsp;added&nbsp;to&nbsp;database.<br>
+False&nbsp;if&nbsp;the&nbsp;shelf&nbsp;could&nbsp;not&nbsp;be&nbsp;added&nbsp;to&nbsp;database.</tt></dd></dl>
+
+<dl><dt><a name="DataManager-delete_position"><strong>delete_position</strong></a>(self, shelf: HttpToMqtt.Types.Shelf, shelf_position: HttpToMqtt.Types.ShelfPosition) -&gt; bool</dt><dd><tt>Method&nbsp;to&nbsp;delete&nbsp;a&nbsp;ShelfPosition&nbsp;from&nbsp;a&nbsp;Shelf&nbsp;in&nbsp;the&nbsp;database.<br>
+&nbsp;<br>
+Parameters<br>
+---------<br>
+shelf&nbsp;:&nbsp;Shelf<br>
+Shelf&nbsp;where&nbsp;the&nbsp;ShelfPosition&nbsp;to&nbsp;be&nbsp;deleted&nbsp;has&nbsp;to&nbsp;be&nbsp;stored&nbsp;in.<br>
+shelf_position&nbsp;:&nbsp;ShelfPosition<br>
+ShelfPosition&nbsp;to&nbsp;be&nbsp;deleted.<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+True&nbsp;if&nbsp;the&nbsp;ShelfPosition&nbsp;could&nbsp;be&nbsp;deleted&nbsp;from&nbsp;the&nbsp;Shelf&nbsp;in&nbsp;the&nbsp;database.<br>
+False&nbsp;if&nbsp;the&nbsp;ShelfPosition&nbsp;could&nbsp;not&nbsp;be&nbsp;deleted&nbsp;from&nbsp;the&nbsp;Shelf&nbsp;in&nbsp;the&nbsp;database.</tt></dd></dl>
+
+<dl><dt><a name="DataManager-delete_shelf_by_shelf_number"><strong>delete_shelf_by_shelf_number</strong></a>(self, shelf_number: int) -&gt; bool</dt><dd><tt>Method&nbsp;to&nbsp;delete&nbsp;a&nbsp;Shelf&nbsp;from&nbsp;the&nbsp;database&nbsp;by&nbsp;its&nbsp;ShelfNumber.&nbsp;It&nbsp;removes&nbsp;the&nbsp;Shelf&nbsp;from<br>
+the&nbsp;database&nbsp;after&nbsp;setting&nbsp;the&nbsp;attribute&nbsp;isUsed&nbsp;of&nbsp;its&nbsp;assigned&nbsp;ESP32&nbsp;to&nbsp;False.<br>
+&nbsp;<br>
+Parameters<br>
+---------<br>
+shelf_number&nbsp;:&nbsp;int<br>
+ShelfNumber&nbsp;of&nbsp;the&nbsp;Shelf&nbsp;to&nbsp;be&nbsp;deleted.<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+True&nbsp;if&nbsp;the&nbsp;Shelf&nbsp;could&nbsp;be&nbsp;deleted&nbsp;from&nbsp;the&nbsp;database.<br>
+False&nbsp;if&nbsp;the&nbsp;Shelf&nbsp;could&nbsp;not&nbsp;be&nbsp;deleted&nbsp;from&nbsp;the&nbsp;database.</tt></dd></dl>
+
+<dl><dt><a name="DataManager-get_esp32_array"><strong>get_esp32_array</strong></a>(self) -&gt; HttpToMqtt.Types.ESP32Array</dt><dd><tt>Method&nbsp;to&nbsp;get&nbsp;the&nbsp;ESP32Array&nbsp;object&nbsp;from&nbsp;the&nbsp;<a href="#DataManager">DataManager</a>.</tt></dd></dl>
+
+<dl><dt><a name="DataManager-get_esp32_by_mac_address"><strong>get_esp32_by_mac_address</strong></a>(self, mac_address: str) -&gt; Optional[HttpToMqtt.Types.ESP32]</dt><dd><tt>Method&nbsp;to&nbsp;get&nbsp;a&nbsp;ESP32&nbsp;object&nbsp;with&nbsp;the&nbsp;given&nbsp;MAC-address<br>
+if&nbsp;found&nbsp;in&nbsp;the&nbsp;database.<br>
+&nbsp;<br>
+Parameters<br>
+-------<br>
+mac_address&nbsp;:&nbsp;str<br>
+The&nbsp;MAC&nbsp;address&nbsp;to&nbsp;search&nbsp;for&nbsp;in&nbsp;the&nbsp;database.<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+An&nbsp;ESP32&nbsp;object&nbsp;if&nbsp;the&nbsp;given&nbsp;MAC-address&nbsp;is&nbsp;found&nbsp;in&nbsp;the&nbsp;database.<br>
+None&nbsp;if&nbsp;an&nbsp;ESP32&nbsp;object&nbsp;with&nbsp;the&nbsp;given&nbsp;MAC-address&nbsp;is&nbsp;not&nbsp;found&nbsp;in&nbsp;the&nbsp;database.</tt></dd></dl>
+
+<dl><dt><a name="DataManager-get_leds_by_shelf_number_and_position_id"><strong>get_leds_by_shelf_number_and_position_id</strong></a>(self, shelf_number: int, position_id: int) -&gt; Optional[List[int]]</dt><dd><tt>Method&nbsp;to&nbsp;get&nbsp;a&nbsp;List[int]&nbsp;object&nbsp;representing&nbsp;the&nbsp;LEDs&nbsp;of&nbsp;a&nbsp;ShelfPosition&nbsp;by<br>
+its&nbsp;ShelfNumber&nbsp;and&nbsp;at&nbsp;the&nbsp;given&nbsp;PositionId&nbsp;if&nbsp;found&nbsp;in&nbsp;the&nbsp;database.<br>
+&nbsp;<br>
+Parameters<br>
+-------<br>
+shelf_number:&nbsp;int<br>
+The&nbsp;ShelfNumber&nbsp;to&nbsp;search&nbsp;for&nbsp;in&nbsp;the&nbsp;database.<br>
+position_id&nbsp;:&nbsp;int<br>
+The&nbsp;PositionId&nbsp;to&nbsp;search&nbsp;for&nbsp;in&nbsp;the&nbsp;database.<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+A&nbsp;List[int]&nbsp;object&nbsp;representing&nbsp;the&nbsp;LEDs&nbsp;of&nbsp;a&nbsp;ShelfPosition&nbsp;by<br>
+its&nbsp;ShelfNumber&nbsp;and&nbsp;at&nbsp;the&nbsp;given&nbsp;PositionId&nbsp;if&nbsp;found&nbsp;in&nbsp;the&nbsp;database.<br>
+None&nbsp;if&nbsp;the&nbsp;given&nbsp;ShelfNumber&nbsp;or&nbsp;the&nbsp;PositionId&nbsp;is&nbsp;not&nbsp;found&nbsp;in&nbsp;the&nbsp;database.</tt></dd></dl>
+
+<dl><dt><a name="DataManager-get_mac_address_by_shelf_number"><strong>get_mac_address_by_shelf_number</strong></a>(self, shelf_number: int) -&gt; Optional[str]</dt><dd><tt>Method&nbsp;to&nbsp;get&nbsp;a&nbsp;MAC&nbsp;address&nbsp;by&nbsp;the&nbsp;ShelfNumber&nbsp;it&nbsp;was&nbsp;assigned&nbsp;to&nbsp;if&nbsp;found&nbsp;in&nbsp;the&nbsp;database.<br>
+&nbsp;<br>
+Parameters<br>
+-------<br>
+shelf_number:&nbsp;int<br>
+The&nbsp;ShelfNumber&nbsp;to&nbsp;search&nbsp;for&nbsp;in&nbsp;the&nbsp;database.<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+A&nbsp;MAC-address&nbsp;if&nbsp;the&nbsp;given&nbsp;ShelfNumber&nbsp;is&nbsp;found&nbsp;in&nbsp;the&nbsp;database.<br>
+None&nbsp;if&nbsp;the&nbsp;given&nbsp;ShelfNumber&nbsp;is&nbsp;not&nbsp;found&nbsp;in&nbsp;the&nbsp;database.</tt></dd></dl>
+
+<dl><dt><a name="DataManager-get_position_by_shelf_number_and_position_id"><strong>get_position_by_shelf_number_and_position_id</strong></a>(self, shelf_number: int, position_id: int) -&gt; Optional[HttpToMqtt.Types.ShelfPosition]</dt><dd><tt>Method&nbsp;to&nbsp;get&nbsp;a&nbsp;ShelfPosition&nbsp;object&nbsp;by&nbsp;its&nbsp;ShelfNumber&nbsp;and&nbsp;PositionId&nbsp;if&nbsp;found&nbsp;in&nbsp;the&nbsp;database.<br>
+&nbsp;<br>
+Parameters<br>
+-------<br>
+shelf_number:&nbsp;int<br>
+The&nbsp;ShelfNumber&nbsp;to&nbsp;search&nbsp;for&nbsp;in&nbsp;the&nbsp;database.<br>
+position_id&nbsp;:&nbsp;int<br>
+The&nbsp;PositionId&nbsp;to&nbsp;search&nbsp;for&nbsp;in&nbsp;the&nbsp;database.<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+A&nbsp;ShelfPosition&nbsp;object&nbsp;if&nbsp;the&nbsp;given&nbsp;ShelfNumber&nbsp;and&nbsp;PositionId&nbsp;is&nbsp;found&nbsp;in&nbsp;the&nbsp;JSON<br>
+database&nbsp;file.<br>
+None&nbsp;if&nbsp;the&nbsp;given&nbsp;ShelfNumber&nbsp;or&nbsp;the&nbsp;PositionId&nbsp;is&nbsp;not&nbsp;found&nbsp;in&nbsp;the&nbsp;JSON&nbsp;database&nbsp;file.</tt></dd></dl>
+
+<dl><dt><a name="DataManager-get_positions_by_shelf_number"><strong>get_positions_by_shelf_number</strong></a>(self, shelf_number: int) -&gt; Optional[List[HttpToMqtt.Types.ShelfPosition]]</dt><dd><tt>Method&nbsp;to&nbsp;get&nbsp;a&nbsp;List[ShelfPosition]&nbsp;object&nbsp;by&nbsp;its&nbsp;ShelfNumber&nbsp;if&nbsp;found&nbsp;in&nbsp;the&nbsp;database.<br>
+&nbsp;<br>
+Parameters<br>
+-------<br>
+shelf_number:&nbsp;int<br>
+The&nbsp;ShelfNumber&nbsp;to&nbsp;search&nbsp;for&nbsp;in&nbsp;the&nbsp;database.<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+A&nbsp;List[ShelfPosition]&nbsp;object&nbsp;if&nbsp;the&nbsp;given&nbsp;ShelfNumber&nbsp;is&nbsp;found&nbsp;in&nbsp;the&nbsp;database.<br>
+None&nbsp;if&nbsp;the&nbsp;given&nbsp;ShelfNumber&nbsp;is&nbsp;not&nbsp;found&nbsp;in&nbsp;the&nbsp;database.</tt></dd></dl>
+
+<dl><dt><a name="DataManager-get_shelf_array"><strong>get_shelf_array</strong></a>(self) -&gt; HttpToMqtt.Types.ShelfArray</dt><dd><tt>Method&nbsp;to&nbsp;get&nbsp;the&nbsp;ShelfArray&nbsp;object&nbsp;from&nbsp;the&nbsp;<a href="#DataManager">DataManager</a>.</tt></dd></dl>
+
+<dl><dt><a name="DataManager-get_shelf_by_mac_address"><strong>get_shelf_by_mac_address</strong></a>(self, mac_address: str) -&gt; Optional[HttpToMqtt.Types.Shelf]</dt><dd><tt>Method&nbsp;to&nbsp;get&nbsp;a&nbsp;Shelf&nbsp;object&nbsp;by&nbsp;its&nbsp;MAC-address&nbsp;if&nbsp;found&nbsp;in&nbsp;the&nbsp;database.<br>
+&nbsp;<br>
+Parameters<br>
+-------<br>
+mac_address:&nbsp;str<br>
+The&nbsp;MAC-address&nbsp;to&nbsp;search&nbsp;for&nbsp;in&nbsp;the&nbsp;database.<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+A&nbsp;Shelf&nbsp;object&nbsp;if&nbsp;the&nbsp;given&nbsp;MAC-address&nbsp;is&nbsp;found&nbsp;in&nbsp;the&nbsp;database.<br>
+None&nbsp;if&nbsp;the&nbsp;given&nbsp;MAC-address&nbsp;is&nbsp;not&nbsp;found&nbsp;in&nbsp;the&nbsp;database.</tt></dd></dl>
+
+<dl><dt><a name="DataManager-get_shelf_by_shelf_number"><strong>get_shelf_by_shelf_number</strong></a>(self, shelf_number: int) -&gt; Optional[HttpToMqtt.Types.Shelf]</dt><dd><tt>Method&nbsp;to&nbsp;get&nbsp;a&nbsp;Shelf&nbsp;object&nbsp;by&nbsp;its&nbsp;ShelfNumber&nbsp;if&nbsp;found&nbsp;in&nbsp;the&nbsp;database.<br>
+&nbsp;<br>
+Parameters<br>
+-------<br>
+shelf_number:&nbsp;int<br>
+The&nbsp;ShelfNumber&nbsp;to&nbsp;search&nbsp;for&nbsp;in&nbsp;the&nbsp;database.<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+A&nbsp;Shelf&nbsp;object&nbsp;if&nbsp;the&nbsp;given&nbsp;ShelfNumber&nbsp;is&nbsp;found&nbsp;in&nbsp;the&nbsp;database.<br>
+None&nbsp;if&nbsp;the&nbsp;given&nbsp;ShelfNumber&nbsp;is&nbsp;not&nbsp;found&nbsp;in&nbsp;the&nbsp;database.</tt></dd></dl>
+
+<dl><dt><a name="DataManager-leds_exists"><strong>leds_exists</strong></a>(self, leds: List[int], shelf_number: int) -&gt; bool</dt><dd><tt>Returns&nbsp;True&nbsp;if&nbsp;one&nbsp;of&nbsp;the&nbsp;LEDs&nbsp;in&nbsp;the&nbsp;given&nbsp;LED&nbsp;array&nbsp;(List[int])&nbsp;already&nbsp;exists&nbsp;in&nbsp;one&nbsp;of&nbsp;the<br>
+ShelfPositions&nbsp;of&nbsp;the&nbsp;Shelf&nbsp;with&nbsp;the&nbsp;given&nbsp;ShelfNumber.<br>
+&nbsp;<br>
+Parameters<br>
+-------<br>
+leds&nbsp;:&nbsp;List[int]<br>
+The&nbsp;LED&nbsp;array&nbsp;(List[int])&nbsp;to&nbsp;look&nbsp;for&nbsp;in&nbsp;the&nbsp;database.&nbsp;When&nbsp;searching&nbsp;for&nbsp;just&nbsp;one&nbsp;LED<br>
+then&nbsp;a&nbsp;List[int]&nbsp;object&nbsp;has&nbsp;to&nbsp;be&nbsp;given&nbsp;with&nbsp;just&nbsp;one&nbsp;LED&nbsp;(int).&nbsp;It&nbsp;has&nbsp;to&nbsp;be&nbsp;a&nbsp;list,&nbsp;not&nbsp;a&nbsp;single&nbsp;int.<br>
+shelf_number:&nbsp;int<br>
+The&nbsp;ShelfNumber&nbsp;of&nbsp;the&nbsp;Shelf&nbsp;in&nbsp;which&nbsp;to&nbsp;search&nbsp;for&nbsp;the&nbsp;LEDs&nbsp;in&nbsp;the&nbsp;database.<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+Returns&nbsp;True&nbsp;if&nbsp;one&nbsp;of&nbsp;the&nbsp;LEDs&nbsp;in&nbsp;the&nbsp;given&nbsp;LED&nbsp;array&nbsp;(List[int])&nbsp;already&nbsp;exists&nbsp;in&nbsp;one&nbsp;of&nbsp;the<br>
+ShelfPositions&nbsp;of&nbsp;the&nbsp;Shelf&nbsp;with&nbsp;the&nbsp;given&nbsp;ShelfNumber.<br>
+Returns&nbsp;False&nbsp;when&nbsp;no&nbsp;LEDs&nbsp;are&nbsp;found&nbsp;in&nbsp;other&nbsp;ShelfPositions&nbsp;in&nbsp;the&nbsp;database.</tt></dd></dl>
+
+<dl><dt><a name="DataManager-leds_exists_exclusive"><strong>leds_exists_exclusive</strong></a>(self, shelf_position: HttpToMqtt.Types.ShelfPosition) -&gt; bool</dt><dd><tt>Returns&nbsp;True&nbsp;if&nbsp;one&nbsp;of&nbsp;the&nbsp;LEDs&nbsp;in&nbsp;the&nbsp;LED&nbsp;array&nbsp;of&nbsp;the&nbsp;given&nbsp;ShelfPosition&nbsp;already&nbsp;exists&nbsp;in&nbsp;one&nbsp;of&nbsp;the<br>
+ShelfPositions&nbsp;of&nbsp;the&nbsp;Shelf&nbsp;with&nbsp;the&nbsp;ShelfNumber&nbsp;of&nbsp;the&nbsp;given&nbsp;ShelfPosition&nbsp;excluding&nbsp;the&nbsp;LEDs<br>
+in&nbsp;the&nbsp;given&nbsp;ShelfPosition.<br>
+&nbsp;<br>
+Parameters<br>
+-------<br>
+shelf_position:&nbsp;ShelfPosition<br>
+ShelfPosition&nbsp;whose&nbsp;LEDs&nbsp;have&nbsp;to&nbsp;be&nbsp;excluded&nbsp;from&nbsp;the&nbsp;search&nbsp;query.<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+Returns&nbsp;True&nbsp;if&nbsp;one&nbsp;of&nbsp;the&nbsp;LEDs&nbsp;in&nbsp;the&nbsp;LED&nbsp;array&nbsp;of&nbsp;the&nbsp;given&nbsp;ShelfPosition&nbsp;already&nbsp;exists&nbsp;in&nbsp;one&nbsp;of&nbsp;the<br>
+positions&nbsp;of&nbsp;the&nbsp;shelf&nbsp;with&nbsp;the&nbsp;ShelfNumber&nbsp;of&nbsp;the&nbsp;given&nbsp;Shelf&nbsp;Position&nbsp;excluding&nbsp;the&nbsp;LEDs<br>
+in&nbsp;the&nbsp;given&nbsp;ShelfPosition.<br>
+Returns&nbsp;False&nbsp;if&nbsp;the&nbsp;ShelfNumber&nbsp;or&nbsp;the&nbsp;PositionId&nbsp;doesn't&nbsp;exist&nbsp;or&nbsp;none&nbsp;of&nbsp;the&nbsp;LEDs&nbsp;were&nbsp;found<br>
+in&nbsp;other&nbsp;ShelfPositions&nbsp;in&nbsp;the&nbsp;Shelf&nbsp;with&nbsp;the&nbsp;ShelfNumber&nbsp;of&nbsp;the&nbsp;given&nbsp;ShelfPosition.</tt></dd></dl>
+
+<dl><dt><a name="DataManager-mac_address_exists"><strong>mac_address_exists</strong></a>(self, mac_address: str) -&gt; bool</dt><dd><tt>Returns&nbsp;True&nbsp;if&nbsp;the&nbsp;given&nbsp;MAC-address&nbsp;is&nbsp;found&nbsp;in&nbsp;the&nbsp;database.<br>
+&nbsp;<br>
+Parameters<br>
+-------<br>
+mac_address&nbsp;:&nbsp;str<br>
+The&nbsp;MAC-address&nbsp;to&nbsp;search&nbsp;for&nbsp;in&nbsp;the&nbsp;database.<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+True&nbsp;if&nbsp;the&nbsp;given&nbsp;MAC-address&nbsp;is&nbsp;found&nbsp;in&nbsp;the&nbsp;database.<br>
+False&nbsp;if&nbsp;the&nbsp;given&nbsp;MAC-address&nbsp;is&nbsp;not&nbsp;found&nbsp;in&nbsp;the&nbsp;database.</tt></dd></dl>
+
+<dl><dt><a name="DataManager-position_id_exists"><strong>position_id_exists</strong></a>(self, shelf_number: int, position_id: int) -&gt; bool</dt><dd><tt>Returns&nbsp;True&nbsp;if&nbsp;the&nbsp;given&nbsp;PositionId&nbsp;is&nbsp;found&nbsp;at&nbsp;the&nbsp;given&nbsp;ShelfNumber&nbsp;in&nbsp;the&nbsp;database.<br>
+&nbsp;<br>
+Parameters<br>
+-------<br>
+shelf_number&nbsp;:&nbsp;int<br>
+The&nbsp;ShelfNumber&nbsp;where&nbsp;the&nbsp;PositionId&nbsp;should&nbsp;be&nbsp;found&nbsp;in&nbsp;the&nbsp;database.<br>
+position_id&nbsp;:&nbsp;int<br>
+The&nbsp;PositionId&nbsp;to&nbsp;search&nbsp;for&nbsp;in&nbsp;the&nbsp;given&nbsp;ShelfNumber.<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+True&nbsp;if&nbsp;the&nbsp;given&nbsp;ShelfNumber&nbsp;is&nbsp;found&nbsp;in&nbsp;the&nbsp;database&nbsp;and&nbsp;the&nbsp;Shelf<br>
+stores&nbsp;the&nbsp;given&nbsp;PositionId.<br>
+False&nbsp;if&nbsp;the&nbsp;given&nbsp;ShelfNumber&nbsp;is&nbsp;not&nbsp;found&nbsp;in&nbsp;the&nbsp;database<br>
+or&nbsp;the&nbsp;Shelf&nbsp;does&nbsp;not&nbsp;store&nbsp;the&nbsp;given&nbsp;PositionId.</tt></dd></dl>
+
+<dl><dt><a name="DataManager-save_backup_data"><strong>save_backup_data</strong></a>(self) -&gt; None</dt><dd><tt>Saves&nbsp;a&nbsp;backup&nbsp;of&nbsp;the&nbsp;data&nbsp;stored&nbsp;in&nbsp;the&nbsp;DB&nbsp;object&nbsp;from&nbsp;the&nbsp;<a href="#DataManager">DataManager</a>&nbsp;as&nbsp;JSON&nbsp;in&nbsp;a&nbsp;text&nbsp;file.</tt></dd></dl>
+
+<dl><dt><a name="DataManager-save_data"><strong>save_data</strong></a>(self) -&gt; None</dt><dd><tt>Saves&nbsp;the&nbsp;data&nbsp;stored&nbsp;in&nbsp;the&nbsp;DB&nbsp;object&nbsp;from&nbsp;the&nbsp;<a href="#DataManager">DataManager</a>&nbsp;as&nbsp;JSON&nbsp;in&nbsp;a&nbsp;text&nbsp;file.</tt></dd></dl>
+
+<dl><dt><a name="DataManager-set_all_esp32s_offline"><strong>set_all_esp32s_offline</strong></a>(self) -&gt; None</dt></dl>
+
+<dl><dt><a name="DataManager-shelf_exists"><strong>shelf_exists</strong></a>(self, shelf_number: int) -&gt; bool</dt><dd><tt>Returns&nbsp;True&nbsp;if&nbsp;the&nbsp;given&nbsp;ShelfNumber&nbsp;is&nbsp;found&nbsp;in&nbsp;the&nbsp;database.<br>
+&nbsp;<br>
+Parameters<br>
+-------<br>
+shelf_number:&nbsp;int<br>
+The&nbsp;ShelfNumber&nbsp;to&nbsp;search&nbsp;for&nbsp;in&nbsp;the&nbsp;database.<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+&nbsp;&nbsp;&nbsp;&nbsp;True&nbsp;if&nbsp;the&nbsp;given&nbsp;shelf_number&nbsp;is&nbsp;found&nbsp;in&nbsp;the&nbsp;JSON&nbsp;database&nbsp;file.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;False&nbsp;if&nbsp;the&nbsp;given&nbsp;shelf_number&nbsp;is&nbsp;not&nbsp;found&nbsp;in&nbsp;the&nbsp;JSON&nbsp;database&nbsp;file.</tt></dd></dl>
+
+<dl><dt><a name="DataManager-shelf_exists_by_mac_address"><strong>shelf_exists_by_mac_address</strong></a>(self, mac_address: str)</dt><dd><tt>Returns&nbsp;True&nbsp;if&nbsp;the&nbsp;given&nbsp;MAC-address&nbsp;is&nbsp;found&nbsp;in&nbsp;a&nbsp;Shelf&nbsp;in&nbsp;the&nbsp;database.<br>
+&nbsp;<br>
+Parameters<br>
+-------<br>
+mac_address:&nbsp;str<br>
+The&nbsp;MAC-address&nbsp;to&nbsp;search&nbsp;for&nbsp;in&nbsp;the&nbsp;database.<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+True&nbsp;if&nbsp;the&nbsp;given&nbsp;MAC-address&nbsp;is&nbsp;found&nbsp;in&nbsp;a&nbsp;Shelf&nbsp;in&nbsp;the&nbsp;database.<br>
+False&nbsp;if&nbsp;the&nbsp;given&nbsp;MAC-address&nbsp;is&nbsp;not&nbsp;found&nbsp;in&nbsp;a&nbsp;Shelf&nbsp;in&nbsp;the&nbsp;database.</tt></dd></dl>
+
+<dl><dt><a name="DataManager-update_position"><strong>update_position</strong></a>(self, shelf: HttpToMqtt.Types.Shelf, shelf_position: HttpToMqtt.Types.ShelfPosition) -&gt; bool</dt><dd><tt>Method&nbsp;to&nbsp;update&nbsp;a&nbsp;ShelfPosition&nbsp;from&nbsp;the&nbsp;given&nbsp;Shelf&nbsp;in&nbsp;the&nbsp;database.<br>
+&nbsp;<br>
+Parameters<br>
+---------<br>
+shelf&nbsp;:&nbsp;Shelf<br>
+Shelf&nbsp;where&nbsp;the&nbsp;ShelfPosition&nbsp;to&nbsp;be&nbsp;updated&nbsp;has&nbsp;to&nbsp;be&nbsp;stored&nbsp;in.<br>
+shelf_position&nbsp;:&nbsp;ShelfPosition<br>
+ShelfPosition&nbsp;to&nbsp;be&nbsp;updated.<br>
+&nbsp;<br>
+Returns<br>
+-------<br>
+True&nbsp;if&nbsp;the&nbsp;ShelfPosition&nbsp;could&nbsp;be&nbsp;updated&nbsp;in&nbsp;the&nbsp;Shelf&nbsp;in&nbsp;the&nbsp;database.<br>
+False&nbsp;if&nbsp;the&nbsp;ShelfPosition&nbsp;could&nbsp;not&nbsp;be&nbsp;updated&nbsp;in&nbsp;the&nbsp;Shelf&nbsp;in&nbsp;the&nbsp;database.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>List</strong> = typing.List<br>
+<strong>Optional</strong> = typing.Optional<br>
+<strong>log</strong> = &lt;Logger __init__ (WARNING)&gt;</td></tr></table>
+</body></html>
